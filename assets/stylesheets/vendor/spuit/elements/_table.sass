@@ -1,0 +1,56 @@
+=table-base($padding: 5px 10px)
+  width: 100%
+  border-collapse: collapse
+  th
+    font-weight: bold
+  th, td
+    padding: $padding
+
+//  .table--frame
+//    +table-frame
+=table-frame($border-top: 2px solid #eee, $border: 1px solid #eee)
+  +table-base
+  border-top: $border
+  thead
+    tr
+      th, td
+        border: $border
+        border-bottom: $border-top
+  tbody
+    tr
+      &:first-child
+        th, td
+          border-top: none
+    th
+      border: $border
+      border-bottom: $border-top
+    td
+      border: $border
+
+//  .table--line
+//    +table-line
+=table-line($border-top: 2px solid #eee, $border: 1px solid #eee)
+  +table-base
+  thead
+    tr
+      th, td
+        border-bottom: $border-top
+  tr
+    &:first-child
+      th, td
+        border-top: none
+  th, td
+    border-top: $border
+
+//  .table--stripe
+//    +table-stripe
+=table-stripe($color-thead: #fff, $color-even: #eee, $color-odd: #f8f8f8)
+  +table-base
+  thead
+    tr
+      background-color: $color-thead
+  tbody
+    tr:nth-child(even)
+      background-color: $color-even
+    tr:nth-child(odd)
+      background-color: $color-odd

@@ -1,0 +1,66 @@
+// &:before
+//   +fa('\f105')
+//   font-size: 14px
+=fa($content: '\f105')
+  +inline-block
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  text-indent: 0
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  @if $content
+    content: $content
+
+// +fa-icon('\f105', 1em, 5px)
+=fa-icon($icon: '\f105', $size: 1em, $margin: 0.4em, $position: 'before')
+  position: relative
+  @if $position == 'after'
+    &:after
+      +fa($icon)
+      font-size: $size
+      margin-left: $margin
+  @else
+    &:before
+      +fa($icon)
+      font-size: $size
+      margin-right: $margin
+
+=fa-absolute($icon: '\f105', $size: 1em, $position: 'left', $left: 0, $top: 0)
+  position: relative
+  &:before
+    +fa($icon)
+    font-size: $size
+    position: absolute
+    @if $position == 'left'
+      position: absolute
+      left: $left
+      top: $top
+    @else if $position == 'right'
+      position: absolute
+      right: $left
+      top: $top
+
+=fa-replace-base($w: 40px)
+  +inline-block
+  +hide-text
+  width: $w
+  height: $w
+  line-height: $w
+  &:before
+    +inline-block
+    width: $w
+    height: $w
+    line-height: $w
+    text-align: center
+    text-indent: 0
+
+=fa-replace($icon: '\f105', $size: 1em, $w: 40px, $round: false)
+  +fa-replace-base($w)
+  +fa-icon($icon, $size, 0)
+
+=fa-loading
+  &.is-loading
+    +fa-icon('\f1ce')
+    &:before
+      +animation(anim-spin 1.6s infinite linear)

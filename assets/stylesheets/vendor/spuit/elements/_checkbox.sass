@@ -1,0 +1,24 @@
+=checkbox-fa
+  label
+    +inline-block
+    position: relative
+    cursor: pointer
+    padding-left: 30px
+    &:before
+      $r: 15px
+      +fa('\f096')
+      +inline-block
+      position: absolute
+      top: 0
+      left: 0
+      width: $r
+      height: $r
+      border-radius: 100%
+      font-size: 18px
+      color: #eee
+  input[type="checkbox"]
+    display: none
+    &:checked + label
+      &:before
+        +fa('\f046')
+        color: #000

@@ -1,0 +1,63 @@
+@import "vendor/spuit/clones/reset"
+@import "vendor/spuit/all"
+
+@import "styles/config/settings"
+@import "styles/config/mixins"
+
+.info
+  padding-bottom: 20px
+  h2
+    +font(26px)
+    a
+      color: $color-def
+  p
+    +inline-block
+    +font(12px)
+    margin-top: 10px
+  ul
+    +inline-block
+    margin-top: 10px
+    li
+      +font(12px)
+      +fa-icon('\f071')
+
+.container
+  +wrap(400px)
+  +clearfix
+  position: relative
+  padding-top: 50px
+  padding-bottom: 50px
+  +media(tablet)
+    padding-top: 30px
+  +media(mobile)
+    padding-top: 20px
+
+.table
+  +table-frame
+  margin-top: 20px
+  th
+    +fa-icon('\f0dc')
+    cursor: pointer
+  tr
+    td
+      +font(14px)
+      &:last-child
+        +font-en(22px)
+        text-align: center
+
+.foot
+  text-align: center
+  li
+    +inline-block
+    margin-left: 5px
+    margin-right: 5px
+  a
+    +inline-block
+    +font(12px)
+    text-decoration: none
+    margin-top: 20px
+    color: $color-def
+    &.is-question
+      +fa-icon('\f059')
+    &.is-twitter
+      +fa-icon('\f099')
